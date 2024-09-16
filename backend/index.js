@@ -23,6 +23,7 @@ app.get("/", (req, res) => {
     res.json("Helloo")
 })
 
+//Show all books
 app.get("/books", (req, res) => {
     const q = "Select * from books";
     db.query(q, (err, data) => {
@@ -31,6 +32,7 @@ app.get("/books", (req, res) => {
     })
 })
 
+// Insert Book
 app.post("/books", (req, res) => {
     const q = "INSERT INTO BOOKS (`title`, `desc`, `cover`) VALUES (?)"
     const values = [
@@ -45,6 +47,16 @@ app.post("/books", (req, res) => {
         if (err) return res.json(err)
         return res.json(data)
     })
+})
+
+// Delete Book
+app.delete("/books/:id", (req,res)=>{
+    const bookId = req.params.id;
+    const q = "DELETE FROM books WHERE id = ?";
+    db.query(q, [bookId], (err,data)=>{
+        if (err) return res.json(err);
+            return res.json("Book deleted succesfully");
+    }) 
 })
 
 app.listen(5000, () => {

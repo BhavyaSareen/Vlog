@@ -40,10 +40,10 @@ function Add() {
     return (
         <div>
             <h1>Add New Book</h1>
-            <input type="text" name="title" value={title} onChange={handleTitleChange} />
-            <input type="number" name="price" value={price} onChange={handlePriceChange} />
-            <input type="text" name="desc" value={desc} onChange={handleDescChange} />
-            <input type="text" name="cover" value={cover} onChange={handleCoverChange} />
+            <input type="text" name="title" placeholder='title' value={title} onChange={handleTitleChange} />
+            <input type="number" name="price" value={price} placeholder='price' onChange={handlePriceChange} />
+            <input type="text" name="desc" value={desc} placeholder='decription' onChange={handleDescChange} />
+            <input type="text" name="cover" value={cover} placeholder='cover' onChange={handleCoverChange} />
             <button onClick={handleClick}>Add</button>
             {error && "Something went wrong"}
         </div>
